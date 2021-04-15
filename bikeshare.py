@@ -1,6 +1,7 @@
 import time
 import pandas as pd
 import numpy as np
+pd.set_option('display.max_columns',200)
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -178,7 +179,7 @@ def user_stats(df,city):
     # Display counts of user types
     user_type = df['User Type'].value_counts()
     print('Counts of user types:\n',user_type,'\n')
-
+    #Washington data does not have gender and birth year columns
     if city !='washington':
         # Display counts of gender
         gender = df['Gender'].value_counts()
@@ -195,6 +196,7 @@ def user_stats(df,city):
     print('-'*40)
 
 def display_data(df):
+    # Asks user if they would like to view 5 rows of individual trip data
     view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
     start_loc = 0
     while view_data =='yes':
